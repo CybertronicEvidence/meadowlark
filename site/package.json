@@ -2,9 +2,10 @@
   "name": "harrendhall",
   "version": "1.0.0",
   "description": "A traveling agent site",
-  "main": "harrendhall.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/CybertronicEvidence/travels#readme",
   "dependencies": {
+    "ejs": "^3.1.8",
     "express": "^4.18.1"
   }
 }
