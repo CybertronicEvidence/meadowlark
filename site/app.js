@@ -1,4 +1,5 @@
 const express = require('express');
+const fortune = require('./libs/fortune.js')
 
 const app = express();
 
@@ -9,21 +10,21 @@ app.set('port', process.env.PORT || 3000);
 
 // routes
 app.get('/', (req, res) => {
-    res.render('home')
+    res.render('home', {title: 'Welcome'})
 })
 
 app.get('/about', (req, res) => {
-    res.render('about')
+    res.render('about', {title: 'About Us', fortune: fortune.getFortune()})
 })
 
 // custom 404 page, catch-all handler
 app.use((req, res) => {
-    res.status(404).render('404');
+    res.status(404).render('404', {title: 'Error not found'});
 })
 
 // custom 500 page, error handler middleware
 app.use((req, res) => {
-    res.status(500).render(500)
+    res.status(500).render('500', {title: 'Server Error'})
 });
 
 app.listen(app.get('port'), () => {
